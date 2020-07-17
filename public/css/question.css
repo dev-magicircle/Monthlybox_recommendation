@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 10px;
+}
+
+.box {
+    font-size:1.4rem;
+    position: absolute;
+    margin-right: 16px;
+    margin-left: 16px;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: #333333;
+}
+
+/*뒤로가기버튼*/
+
+
+.header {
+    margin-top: 6%;
+    margin-bottom: 6%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    vertical-align: middle;
+}
+.header #btn_back img{
+    vertical-align: middle;
+}
+#btn_back {
+    float: left;
+    height: 24px;
+    width: 24px;
+    opacity: .5;
+}
+
+#qNumber {
+    height:24px;
+    line-height: 24px;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #FF4545;
+}
+
+#question {
+    word-break: keep-all;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #333333;
+    position: relative;
+    margin-bottom: 8%;
+    /*비율*/
+}
+
+#reset {
+    text-decoration: none;
+    margin-top: 12%;
+    /*비율*/
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+#reset_detail {
+    text-decoration: none;
+    color: #898989;
+    font-size: 1.2rem;
+}
+
+@media(min-width:700px) {
+    * {
+        width: 700px;
+        margin: 0 auto;
+    }
+
+    .header {
+        grid-template-columns: 10px 10px 10px;
+    }
+
+}
+
+/*세로길이가 500px이상*/
+@media(min-width:500px) {
+    * {
+        font-size: 15px;
+    }
+}

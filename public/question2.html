@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height,initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>선택지</title>
+    <link rel="stylesheet" href="css/question.css">
+    <link rel="stylesheet" href="css/logo.css">
+    <style>
+        .box {position:relative;}
+        .box .box_inner{
+            position:absolute;
+            left:50%;
+            transform: translate(-50%);
+            width:100%;
+        }
+        .select {
+            width: 100%;
+        }
+
+        .select .month {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 10px;
+            justify-content: center;
+        }
+
+        .select .month a {
+            background-color: #ED7374;
+            border: 2px solid #ED7374;
+            width: 100%;
+            color: white;
+            border-radius: 12px;
+            height: 50px;
+            line-height: 50px;
+            font-size: 1.4rem;
+        }
+
+        .select .month a:hover {
+            background-color: white;
+            border: 2px solid #ED7374;
+            color: #ED7374;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="box_inner">
+            <img id="logo" src="img/Logo.png">
+            <div class="header">
+                <div><a href="question1.html"><img id="btn_back" src="img/backbtn.png"></a></div>
+                <div><span id="qNumber">2/4</span></div>
+                <div></div>
+            </div>
+            <h2 id="question">
+                임신 몇 개월이신가요?
+            </h2>
+
+            <div class="select">
+                <div class="month">
+                    <a href="question3.html" onclick="month_2();">2개월</a>
+                    <a href="question3.html" onclick="month_3();">3개월</a>
+                    <a href="question3.html" onclick="month_4();">4개월</a>
+                    <a href="question3.html" onclick="month_5();">5개월</a>
+                    <a href="question3.html" onclick="month_6();">6개월</a>
+                    <a href="question3.html" onclick="month_7();">7개월</a>
+                    <a href="question3.html" onclick="month_8();">8개월</a>
+                    <a href="question3.html" onclick="month_9();">9개월</a>
+                    <a href="question3.html" onclick="month_10();">10개월</a>
+                    <a href="question3.html" onclick="month_11();">11개월</a>
+                    <a href="question3.html" onclick="month_12();">12개월</a>
+                    <a href="question3.html" onclick="month_13();">13개월</a>
+                    <a href="question3.html" onclick="month_pass()">아직 몰라요!</a>
+                </div>
+            </div>
+            <div id="reset"><a href="index.html" id="reset_detail">&#10227; 처음부터 다시하기</a></div>
+        </div>
+    </div>
+
+    <script>
+        function month_2() {
+            sessionStorage.setItem("result_1", "입덧박스");
+            sessionStorage.setItem("result_1_month", 2);
+            let result_1 = sessionStorage.getItem("result_1");
+            let result_1_month = sessionStorage.getItem("result_1_month");
+            console.log(result_1 + " " + result_1_month);
+        }
+
+        function month_3() {
+            sessionStorage.setItem("result_1", "헤어&바디박스");
+            sessionStorage.setItem("result_1_month", 3);
+            let result_1 = sessionStorage.getItem("result_1");
+            let result_1_month = sessionStorage.getItem("result_1_month");
+            console.log(result_1 + " " + result_1_month);
+        }
+
+        function month_4() {
+            sessionStorage.setItem("result_1", "튼살박스");
+            sessionStorage.setItem("result_1_month", 4);
+            let result_1 = sessionStorage.getItem("result_1");
+            let result_1_month = sessionStorage.getItem("result_1_month");
+            console.log(result_1 + " " + result_1_month);
+        }
+
+        function month_5() {
+            sessionStorage.setItem("result_1", "꿀잠박스");
+            sessionStorage.setItem("result_1_month", 5);
+            let result_1 = sessionStorage.getItem("result_1");
+            let result_1_month = sessionStorage.getItem("result_1_month");
+            console.log(result_1 + " " + result_1_month);
+        }
+
+        function month_6() {
+            sessionStorage.setItem("result_1", "생활박스");
+            sessionStorage.setItem("result_1_month", 6);
+            let result_1 = sessionStorage.getItem("result_1");
+            let result_1_month = sessionStorage.getItem("result_1_month");
+            console.log(result_1 + " " + result_1_month);
+        }
+
+        function month_7() {
+            sessionStorage.setItem("result_1", "부종박스");
+            sessionStorage.setItem("result_1_month", 7);
+            let result_1 = sessionStorage.getItem("result_1");
+            let result_1_month = sessionStorage.getItem("result_1_month");
+            console.log(result_1 + " " + result_1_month);
+        }
+
+        function month_8() {
+            sessionStorage.setItem("result_1", "런드리박스");
+            sessionStorage.setItem("result_1_month", 8);
+            let result_1 = sessionStorage.getItem("result_1");
+            let result_1_month = sessionStorage.getItem("result_1_month");
+            console.log(result_1 + " " + result_1_month);
+        }
+
+        function month_9() {
+            sessionStorage.setItem("result_1", "출산가방박스");
+            sessionStorage.setItem("result_1_month", 9);
+            let result_1 = sessionStorage.getItem("result_1");
+            let result_1_month = sessionStorage.getItem("result_1_month");
+            console.log(result_1 + " " + result_1_month);
+        }
+
+        function month_10() {
+            sessionStorage.setItem("result_1", "출산기념박스");
+            sessionStorage.setItem("result_1_month", 10);
+            let result_1 = sessionStorage.getItem("result_1");
+            let result_1_month = sessionStorage.getItem("result_1_month");
+            console.log(result_1 + " " + result_1_month);
+        }
+
+        function month_11() {
+            sessionStorage.setItem("result_1", "목욕박스");
+            sessionStorage.setItem("result_1_month", 11);
+            let result_1 = sessionStorage.getItem("result_1");
+            let result_1_month = sessionStorage.getItem("result_1_month");
+            console.log(result_1 + " " + result_1_month);
+        }
+
+        function month_12() {
+            sessionStorage.setItem("result_1", "두피릴렉싱박스");
+            sessionStorage.setItem("result_1_month", 12);
+            let result_1 = sessionStorage.getItem("result_1");
+            let result_1_month = sessionStorage.getItem("result_1_month");
+            console.log(result_1 + " " + result_1_month);
+        }
+
+        function month_13() {
+            sessionStorage.setItem("result_1", "100일의 기적 박스");
+            sessionStorage.setItem("result_1_month", 13);
+            let result_1 = sessionStorage.getItem("result_1");
+            let result_1_month = sessionStorage.getItem("result_1_month");
+            console.log(result_1 + " " + result_1_month);
+        }
+
+        function month_pass() {
+            sessionStorage.setItem("result_1", "헤어&바디박스");
+            sessionStorage.setItem("result_1_month", 0);
+            let result_1 = sessionStorage.getItem("result_1");
+            let result_1_month = sessionStorage.getItem("result_1_month");
+            console.log(result_1 + " " + result_1_month);
+        }
+
+    </script>
+</body>
+
+</html>

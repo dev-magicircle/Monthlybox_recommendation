@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height,initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>선택지</title>
+    <link rel="stylesheet" href="css/question.css">
+    <link rel="stylesheet" href="css/logo.css">
+    <style>
+        ul {
+            list-style-type: none;
+            display: grid;
+            grid-template-columns: auto auto;
+
+        }
+
+        ul li {
+
+            display: inline-block;
+            width: 100%;
+            position: relative;
+            margin: 0 auto;
+            vertical-align: middle;
+        }
+
+        input[type="checkbox"][id^="myCheckbox"] {
+            display: none;
+        }
+
+        label {
+            font-size: 1.3rem;
+            box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
+            border: 1px solid #FCFDFD;
+            border-radius: 12px;
+            overflow: hidden;
+            display: block;
+            cursor: pointer;
+            margin: 10px;
+            padding: 9px;
+        }
+
+        label img {
+            padding-bottom: 9px;
+            padding-top: 9px;
+        }
+
+        label:before {
+            background-color: white;
+            color: white;
+            content: " ";
+            display: block;
+            border-radius: 50%;
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            width: 15px;
+            height: 15px;
+            text-align: center;
+            line-height: 15px;
+            transition-duration: 0.4s;
+            transform: scale(0);
+        }
+
+        label img {
+            width: 100%;
+            transition-duration: 0.2s;
+            transform-origin: 50% 50%;
+        }
+
+        label:hover {}
+
+        :checked+label {
+            border-color: #ddd;
+            opacity: .5;
+        }
+
+        :checked+label:before {
+            /* content: "✓";
+            background-color: #ED7374;
+            transform: scale(1);*/
+        }
+
+        :checked+label img {
+            transform: scale(0.8);
+
+            z-index: -1;
+        }
+
+        .select {
+            margin-top: 8%;
+            margin-bottom: 4%;
+            text-align: center;
+            width: 100%;
+        }
+
+        .select a {
+            background-color: #ED7374;
+            color: white;
+            display: block;
+            margin-bottom: 10px;
+            width: 100%;
+            border: 2px solid #ED7374;
+            border-radius: 12px;
+            height: 50px;
+            line-height: 50px;
+            font-size: 1.4rem;
+        }
+
+        .select a:hover {
+            background-color: white;
+            border: 2px solid #ED7374;
+            color: #ED7374;
+        }
+
+        @media(min-width:700px) {
+            label {
+                width: auto;
+            }
+
+            label:before {
+                top: 8px;
+                left: 8px;
+                width: 30px;
+                height: 30px;
+                text-align: center;
+                line-height: 30px;
+                transition-duration: 0.4s;
+                transform: scale(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        <img id="logo" src="img/Logo.png">
+        <div class="header">
+            <div><a href="question2.html"><img id="btn_back" src="img/backbtn.png"></a></div>
+            <div><span id="qNumber">3/4</span></div>
+            <div></div>
+        </div>
+        <h2 id="question">
+            임신 기간 중 고민거리 <br>두 가지를 뽑는다면 무엇인가요?
+        </h2>
+
+
+        <ul>
+            <li>
+                <input type="checkbox" id="myCheckbox1" onClick="count_ck(this);" name="chk" />
+                <label for="myCheckbox1"><img src="img/worry_stress.jpg" />스트레스관리</label>
+            </li>
+            <li>
+                <input type="checkbox" id="myCheckbox2" onClick="count_ck(this);" name="chk" />
+                <label for="myCheckbox2"><img src="img/worry_weight.jpg" />체중 증가 관리</label>
+            </li>
+            <li>
+                <input type="checkbox" id="myCheckbox3" onClick="count_ck(this);" name="chk" />
+                <label for="myCheckbox3"><img src="img/worry_change.jpg" /><span style="font-size:1.2rem">튼살과 임신선, 낯선변화</span></label>
+            </li>
+            <li>
+                <input type="checkbox" id="myCheckbox4" onClick="count_ck(this);" name="chk" />
+                <label for="myCheckbox4"><img src="img/worry_family.jpg" />기존 가족 챙기기</label>
+            </li>
+            <li>
+                <input type="checkbox" id="myCheckbox5" onClick="count_ck(this);" name="chk" />
+                <label for="myCheckbox5"><img src="img/worry_work.jpg" />일과 임신의 병행</label>
+            </li>
+            <li>
+                <input type="checkbox" id="myCheckbox6" onClick="count_ck(this);" name="chk" />
+                <label for="myCheckbox6"><img src="img/worry_growth.jpg" />아기의 안전한 성장</label>
+            </li>
+            <li>
+                <input type="checkbox" id="myCheckbox7" onClick="count_ck(this);" name="chk" />
+                <label for="myCheckbox7"><img src="img/worry_fear.jpg" />출산의 공포</label>
+            </li>
+            <li>
+                <input type="checkbox" id="myCheckbox8" name="chk" />
+                <label for="myCheckbox8"><img src="img/worry_money.jpg" />경제적 부담</label>
+            </li>
+        </ul>
+
+        <div class="select">
+            <center>
+                <a id="pay1" href="#" onClick="next();">선택 완료</a>
+            </center>
+        </div>
+        <div id="reset"><a href="index.html" id="reset_detail">&#10227; 처음부터 다시하기</a></div>
+
+
+        <!--<form name="checkTest">
+            <div id="select">
+              
+                <div><img src="img/worry_weight.jpeg"> <input type="checkbox" name="chk" id="worry2" onClick="count_ck(this);">체중 증가 관리</div>
+                <div><img src="img/worry_change.jpeg"><input type="checkbox" name="chk" id="worry3" onClick="count_ck(this);">튼살과 임신선, 낯선 변화</div>
+                <div><img src="img/worry_family.jpeg"><input type="checkbox" name="chk" id="worry4" onClick="count_ck(this);">기존 가족 챙기기</div>
+                <div><img src="img/worry_work.jpeg"><input type="checkbox" name="chk" id="worry5" onClick="count_ck(this);">일과 임신의 병행</div>
+                <div><img src="img/worry_growth.jpeg"><input type="checkbox" name="chk" id="worry6" onClick="count_ck(this);">아기의 안전한 성장</div>
+                <div><img src="img/worry_fear.jpeg"><input type="checkbox" name="chk" id="worry7" onClick="count_ck(this);">출산의 공포</div>
+                <div><img src="img/worry_money.jpeg"> <input type="checkbox" name="chk" id="worry8" onClick="count_ck(this);">경제적 부담</div>
+            </div>
+        </form>
+-->
+
+    </div>
+
+    <script>
+        function count_ck(obj) {
+            console.log("click");
+            let chkbox = document.getElementsByName("chk");
+            let chkCnt = 0;
+            console.log(chkbox.length);
+            for (let i = 0; i < chkbox.length; i++) {
+                if (chkbox[i].checked) {
+                    chkCnt++;
+                }
+            }
+            if (chkCnt > 2) {
+                alert("고민은 2개만 골라주세요.");
+                obj.checked = false;
+                return false;
+            }
+        }
+
+        function next() {
+            let worry_1_chk = false; //하나 선택한 거 했는지
+            let chkbox = document.getElementsByName("chk");
+            let chkCnt = 0;
+            let worries = ["스트레스 관리", "체중 증가 관리", "튼살과 임신선, 낯선 변화", "기존 가족 챙기기", "일과 임신의 병행", "아기의 안전한 성장", "출산의 공포", "경제적 부담"];
+            let months = [3, 2, 4, 5, 2, 3, 5, 4];
+            let boxes = ["헤어&바디박스", "입덧박스", "튼살박스", "꿀잠박스", "입덧박스", "헤어&바디박스", "꿀잠박스", "튼살박스"];
+            for (let i = 0; i < chkbox.length; i++) {
+                if (chkbox[i].checked) {
+                    chkCnt++;
+                }
+            }
+            if (chkCnt != 2) {
+                alert("고민을 2개 골라주세요.");
+            }
+            //두 개 선택하고 클릭하면 페이지이동
+            else {
+                let chkbox = document.getElementsByName("chk");
+                console.log(chkbox.length);
+                for (let i = 0; i < chkbox.length; i++) {
+                    if (chkbox[i].checked) {
+                        //걱정1을 이미 선택했다면
+                        if (worry_1_chk == true) {
+                            sessionStorage.setItem("worry_2", worries[i]);
+                            sessionStorage.setItem("worry_2_box", boxes[i]);
+                            sessionStorage.setItem("worry_2_month", months[i]);
+                            break;
+                        }
+                        //걱정1선택하기
+                        sessionStorage.setItem("worry_1", worries[i]);
+                        sessionStorage.setItem("worry_1_box", boxes[i]);
+                        sessionStorage.setItem("worry_1_month", months[i]);
+                        worry_1_chk = true;
+                    }
+                    location.href = "question4.html";
+                }
+            }
+            let worry_1 = sessionStorage.getItem("worry_1");
+            let worry_2 = sessionStorage.getItem("worry_2");
+        }
+    </script>
+</body></html>

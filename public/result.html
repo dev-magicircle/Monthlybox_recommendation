@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height,initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <!--페이지 설명(링크 공유할 때 나오는 부분)-->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://villagebabymbti.netlify.app/isfp.html" />
+    <meta property="og:title" content="월간임신박스추천" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="/img/ISFP.jpg" />
+    <!--페이지 설명(링크 공유할 때 나오는 부분)-->
+
+    <title>결과</title>
+    <link rel="stylesheet" href="css/result.css">
+    <link rel="stylesheet" href="css/logo.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nanum+Gothic&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="box">
+        <img id="logo" src="img/Logo.png">
+
+        <p id="title">월간임신이 추천하는 박스는</p>
+        <div class="recommendation">
+            <h1 class="recommendation" id="recommendation_box1"></h1>
+            <h1 class="recommendation" style="color:black">와</h1>
+            <h1 class="recommendation" id="recommendation_box2"></h1>
+        </div>
+        <p id="text"></p>
+        <div class="explanation">
+            먼저 알려주신 임신 개월에 맞게
+
+            <!--추천박스1-->
+            <b><span class="input_text" id="result_1"></span></b>를 추천드릴게요. <span class="input_text" id="result_1_text"></span>
+            <img class="box-img" id="result_1_img" src="">
+            <a href="javascript:goPage_1()" class="link"><span id="link_box1"></span> 더 자세히 보기 ></a><br><br><br>
+
+            <br><span class="input_text" id="pay_text"></span><br>
+            우리 월간임신 멤버님을 괴롭히는 요즘의 고민은 <b><span class="input_text" id="worry_1"></span></b>와 <b><span class="input_text" id="worry_2"></span></b>(이)라고요!
+            <br>고민을 가장 잘 해결해줄 박스로는
+
+            <!--추천박스2-->
+            <b><span class="input_text" id="result_2"></span></b>를 추천하고 싶어요.
+            <span class="input_text" id="result_2_re"></span>는 <span class="input_text" id="result_2_text"></span>
+
+
+            <img class="box-img" id="result_2_img" src="">
+            <br>
+            <a href="javascript:goPage_2()" class="link"><span id="link_box2"></span> 더 자세히 보기 ></a><br><br><br>
+
+
+            물론 월간임신의 모든 박스는 구독 이후 순서와 구성 등을 멤버 여러분이 원하는대로 변경할 수 있어요. 예를 들어, 입덧>두피>튼살 순서가 아닌, 튼살>입덧>두피 순서도 가능하죠! 그러니 언제든 부담없이 구독하시고 필요한 도움을 받으세요 :)
+
+            <div id="btn">
+                <a class="button" id="btn1" href="https://villagebaby.kr/product/detail.html?product_no=13" onclick="">지금 바로 월간임신 구경하기!</a>
+                <a class="button" id="btn2" href="index.html">&#10227; 테스트 다시하기</a>
+            </div>
+        </div>
+
+    </div>
+
+    <script type="text/javascript" src="js/result.js"></script>
+    <script type="text/javascript">
+        function goPage_1() {
+            let result = sessionStorage.getItem("result_1");
+            if (result == '입덧박스') {
+                location.href = "https://villagebaby.kr/board/gallery/read.html?no=437&board_no=8&page=2";
+            } else if (result == '헤어&바디박스') {
+                location.href = "https://villagebaby.kr/board/gallery/read.html?no=440&board_no=8&page=1";
+            } else if (result == '튼살박스') {
+                location.href = "https://villagebaby.kr/board/gallery/read.html?no=442&board_no=8&page=1";
+            } else if (result == '꿀잠박스') {
+                location.href = "https://villagebaby.kr/board/gallery/read.html?no=443&board_no=8&page=1";
+            } else if (result == '생활박스') {
+                location.href = "https://villagebaby.kr/board/gallery/read.html?no=444&board_no=8&page=1";
+            } else if (result == '부종박스') {
+                location.href = "https://villagebaby.kr/board/gallery/read.html?no=445&board_no=8&page=1";
+            } else if (result == '런드리박스') {
+                location.href = "https://villagebaby.kr/board/gallery/read.html?no=446&board_no=8&page=1";
+            } else if (result == '출산기념박스') {
+                location.href = "https://villagebaby.kr/board/gallery/read.html?no=448&board_no=8&page=1";
+            } else if (result == '출산가방박스') {
+                location.href = "https://villagebaby.kr/board/gallery/read.html?no=447&board_no=8&page=1";
+            } else if (result == '목욕박스') {
+                location.href = "https://villagebaby.kr/board/gallery/read.html?no=449&board_no=8&page=1";
+            } else if (result == '두피릴렉싱박스') {
+                location.href = "https://villagebaby.kr/board/gallery/read.html?no=451&board_no=8&page=1";
+            } else if (result == '100일의 기적 박스') {
+                location.href = "https://villagebaby.kr/board/gallery/read.html?no=452&board_no=8&page=1";
+            }
+        }
+
+        function goPage_2() {
+            let result = sessionStorage.getItem("result_2");
+            if (result == '입덧박스') {
+                location.href = "https://villagebaby.kr/board/gallery/read.html?no=437&board_no=8&page=2";
+            } else if (result == '헤어&바디박스') {
+                location.href = "https://villagebaby.kr/board/gallery/read.html?no=440&board_no=8&page=1";
+            } else if (result == '튼살박스') {
+                location.href = "https://villagebaby.kr/board/gallery/read.html?no=442&board_no=8&page=1";
+            } else if (result == '꿀잠박스') {
+                location.href = "https://villagebaby.kr/board/gallery/read.html?no=443&board_no=8&page=1";
+            } else if (result == '생활박스') {
+                location.href = "https://villagebaby.kr/board/gallery/read.html?no=444&board_no=8&page=1";
+            } else if (result == '부종박스') {
+                location.href = "https://villagebaby.kr/board/gallery/read.html?no=445&board_no=8&page=1";
+            } else if (result == '런드리박스') {
+                location.href = "https://villagebaby.kr/board/gallery/read.html?no=446&board_no=8&page=1";
+            } else if (result == '출산기념박스') {
+                location.href = "https://villagebaby.kr/board/gallery/read.html?no=448&board_no=8&page=1";
+            } else if (result == '출산가방박스') {
+                location.href = "https://villagebaby.kr/board/gallery/read.html?no=447&board_no=8&page=1";
+            } else if (result == '목욕박스') {
+                location.href = "https://villagebaby.kr/board/gallery/read.html?no=449&board_no=8&page=1";
+            } else if (result == '두피릴렉싱박스') {
+                location.href = "https://villagebaby.kr/board/gallery/read.html?no=451&board_no=8&page=1";
+            } else if (result == '100일의 기적 박스') {
+                location.href = "https://villagebaby.kr/board/gallery/read.html?no=452&board_no=8&page=1";
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

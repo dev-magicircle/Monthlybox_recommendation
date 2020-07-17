@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height,initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>선택지</title>
+    <link rel="stylesheet" href="css/question.css">
+    <link rel="stylesheet" href="css/logo.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <style>
+        .box {
+            position: relative;
+            margin-right: 16px;
+            margin-left: 16px;
+            text-align: center;
+        }
+
+        .select .selects a {
+            font-size: 1.4rem;
+        }
+
+        .select {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 10px;
+
+        }
+
+        .select .selects a {
+            font-size: 1.3rem;
+            padding-bottom: 9px;
+            padding-top: 9px;
+        }
+
+        .select .selects img {
+            padding-bottom: 9px;
+        }
+
+        .select .selects {
+            box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
+            border: 1px solid #FCFDFD;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .select a,
+        .select img {
+            display: block;
+        }
+
+        .select a:hover {
+            opacity: .5;
+        }
+
+
+        @media(min-width:700px) {
+
+            .select .selects {
+                width: 329px;
+                margin-bottom: 10px;
+            }
+
+            .select .selects a {
+                transform: translateX(-175px);
+
+            }
+
+            img {
+                width: 350px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="box">
+        <img id="logo" src="img/Logo.png">
+        <div class="header">
+            <div><a href="question3.html"><img id="btn_back" src="img/backbtn.png"></a></div>
+            <div><span id="qNumber">4/4</span></div>
+            <div></div>
+        </div>
+        <h2 id="question">
+            어떤 소비 성향을 가지고 있나요?
+        </h2>
+
+        <div class="select">
+
+            <div class="selects"><a id="pay1" onclick="pay1();" href="result.html"><img src="img/spend-1.jpg">나는 무조건 <br>가성비가 최고라네!</a></div>
+            <div class="selects"><a id="pay2" onclick="pay2();" href="result.html"><img src="img/spend-2.jpg">아기자기 선물받는 느낌의 <br>가심비가 최고!</a></div>
+            <div class="selects"><a id="pay3" onclick="pay3();" href="result.html"><img src="img/spend-%203.jpg">프리미엄 제품이 <br>좋아요!</a></div>
+        </div>
+        <div id="reset"><a href="index.html" id="reset_detail">&#10227; 처음부터 다시하기</a></div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase.js"></script>
+    <script>
+        function pay1() {
+            sessionStorage.setItem("pay_attribute", "가성비");
+            sessionStorage.setItem("pay_month", 4);
+            sessionStorage.setItem("pay_box", "튼살박스");
+            pay_month = sessionStorage.getItem("pay_month");
+            pay_box = sessionStorage.getItem("pay_box");
+            console.log(pay_month + " " + pay_box);
+            result_2();
+            writeData();
+
+        }
+
+        function pay2() {
+            sessionStorage.setItem("pay_attribute", "가심비");
+            sessionStorage.setItem("pay_month", 5);
+            sessionStorage.setItem("pay_box", "꿀잠박스");
+            pay_month = sessionStorage.getItem("pay_month");
+            pay_box = sessionStorage.getItem("pay_box");
+            console.log(pay_month + " " + pay_box);
+            result_2();
+            writeData();
+        }
+
+        function pay3() {
+            sessionStorage.setItem("pay_attribute", "프리미엄");
+            sessionStorage.setItem("pay_month", 6);
+            sessionStorage.setItem("pay_box", "헤어&바디박스");
+            pay_month = sessionStorage.getItem("pay_month");
+            pay_box = sessionStorage.getItem("pay_box");
+            console.log(pay_month + " " + pay_box);
+            result_2();
+            writeData();
+        }
+        //두번째추천박스
+        function result_2() {
+            const month_arr = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 0]; //월
+            const worry_arr = [
+                '스트레스 관리',
+                '체중증가 관리',
+                '튼살과 임신선 낯선 변화',
+                '기존 가족 챙기기',
+                '일과 임신의 병행',
+                '아기의 안전한 성장',
+                '출산의 공포',
+                '경제적 부담',
+            ];
+            const box_arr = [
+                '입덧박스',
+                '헤어&바디박스',
+                '튼살박스',
+                '꿀잠박스',
+                '생활박스',
+                '부종박스',
+                '런드리박스',
+                '출산가방박스',
+                '출산기념박스',
+                '목욕박스',
+                '두피릴렉싱박스',
+                '100일의 기적',
+                '헤어&바디박스',
+            ];
+            let worry_1_box = sessionStorage.getItem('worry_1_box');
+            let worry_2_box = sessionStorage.getItem('worry_2_box');
+            let result_1 = sessionStorage.getItem('result_1');
+            let pay_box = sessionStorage.getItem('pay_box');
+            let worry_1_month = sessionStorage.getItem('worry_1_month');
+            let worry_2_month = sessionStorage.getItem('worry_2_month');
+            let result_2;
+
+            //걱정 두 박스가 같음
+            if (worry_1_box == worry_2_box) {
+                //첫 번째 추천박스랑도 같은 경우
+                if (worry_1_box == result_1) {
+                    //소비성향 박스랑도 같은 경우
+                    if (worry_1_box == pay_box) {
+                        result_2_month = worry_1_month + 1;
+                        for (let i = 0; i < 13; i++) {
+                            if (month_arr[i] == result_2_month) result_2 = box_arr[i];
+                        }
+                    }
+                    //소비성향 박스랑 다른 경우
+                    else if (worry_1_box != pay_box) {
+                        result_2 = pay_box;
+                    }
+                }
+                //첫 번째 추천박스랑 다른 경우
+                else if (worry_1_box != result_1) {
+                    result_2 = worry_1_box;
+                }
+            }
+            //박스 2개가 다른 경우
+            else if (worry_1_box != worry_2_box) {
+                if (worry_1_box == result_1) result_2 = worry_2_box;
+                else if (worry_2_box == result_1) result_2 = worry_1_box;
+                else {
+                    if (worry_1_month > worry_2_month) result_2 = worry_1_box;
+                    else result_2 = worry_2_box;
+                }
+            }
+            sessionStorage.setItem('result_2', result_2);
+        }
+        // Your web app's Firebase configuration
+        var config = {
+            apiKey: "AIzaSyDNbiWdoL6gmS_0jhcdyQGucdX9WrDWe1E",
+            authDomain: "villagebaby-monthlybox.firebaseapp.com",
+            databaseURL: "https://villagebaby-monthlybox.firebaseio.com",
+            projectId: "villagebaby-monthlybox",
+            storageBucket: "villagebaby-monthlybox.appspot.com",
+            messagingSenderId: "944592299921",
+            appId: "1:944592299921:web:9ba67bf3e633a06c729c30",
+            measurementId: "G-ZYJPR9PVJP"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(config);
+        var database = firebase.database();
+
+        function writeData() {
+            console.log("writedata함수시작");
+            let state = sessionStorage.getItem("state");
+            let result_1_month = sessionStorage.getItem("result_1_month");
+            let worry_1 = sessionStorage.getItem("worry_1");
+            let worry_2 = sessionStorage.getItem("worry_2");
+            let pay_attribute = sessionStorage.getItem("pay_attribute");
+            let result_1 = sessionStorage.getItem("result_1");
+            let result_2 = sessionStorage.getItem("result_2");
+
+
+            firebase.database().ref("응답").push({
+                상황: state,
+                임신개월: result_1_month,
+                고민1: worry_1,
+                고민2: worry_2,
+                소비성향: pay_attribute,
+                추천박스1: result_1,
+                추천박스2: result_2
+            });
+        }
+    </script>
+
+</body></html>

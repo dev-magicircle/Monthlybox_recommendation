@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <!--페이지 설명(링크 공유할 때 나오는 부분)-->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="#" />
+    <meta property="og:title" content="나에게 맞는 월간임신박스는?" />
+    <meta property="og:description" content="1분의 재미난 퀴즈 시간을 갖고, 월간임신이 추천 드리는 박스를 확인해보세요!" />
+    <meta property="og:image" content="img/main_img_files/b89f25c3266f2cb2d61c05c4e7419308.jpg" />
+    <!--페이지 설명(링크 공유할 때 나오는 부분)-->
+
+    <title>월간임신 박스 추천</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/logo.css">
+</head>
+
+<body>
+    <script id="javascript-sdk" src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <div class="box">
+        <img id="logo" src="img/Logo.png">
+        <div id="title">
+            나에게 맞는<br>월간임신박스는?
+        </div>
+        <img id="main_img" src="img/main_img_files/b89f25c3266f2cb2d61c05c4e7419308.jpg">
+        <div id="text">
+            나에게 꼭 맞는 월간임신 박스를 추천받고 싶으신가요? <br>지금부터 1분의 재미난 퀴즈 시간을 갖고,<br> 월간임신이 추천 드리는 박스를 확인해보세요!
+        </div>
+
+        <div id="btn">
+            <div><a class="button" id="btn_test" href="question1.html">테스트 시작</a></div>
+
+            <!--하단 공유 버튼 3개-->
+            <div id="btn_low">
+
+                <a id="btn_kakao" href="javascript:sendLink()"><img src="img/kakaobtn.png"></a>
+
+                <a id="btn_facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fvillagebaby-monthlybox.web.app%2F&amp;src=sdkpreparse"><img src="img/facebookbtn.png"></a>
+
+                <a id="btn_urlshare" href="#" onClick="clip(); return false" contenteditable='true' style="cursor: pointer;"><img src="img/sharebtn.png"></a></div>
+        </div>
+    </div>
+
+    <!--카카오공유-->
+    <script type="text/javascript">
+        try {
+            Kakao.init('ff64f559404fc0c2a75d3c3187ef35e3')
+
+            function sendLink() {
+                Kakao.Link.sendCustom({
+                    templateId: 32710,
+                    templateArgs: {
+                        title: "나에게 맞는 월간임신박스는?",
+                        description: "1분의 재미난 퀴즈 시간을 갖고, 월간임신이 추천 드리는 박스를 확인해보세요!",
+                    },
+                })
+            };
+            window.kakaoDemoCallback && window.kakaoDemoCallback()
+        } catch (e) {
+            window.kakaoDemoException && window.kakaoDemoException(e)
+        }
+    </script>
+
+    <!--링크공유-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+        $(document).on("click", "#btn_urlshare", function(e) {
+            $('html').find('meta[name=viewport]').attr('content', 'width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no');
+            var html = "<input id='clip_target' type='text' value='' style='position:absolute;top:-9999em;'/>";
+            $(this).append(html);
+            var input_clip = document.getElementById("clip_target");
+            var _url = $(location).attr('href');
+            $("#clip_target").val(_url);
+            if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
+                var editable = input_clip.contentEditable;
+                var readOnly = input_clip.readOnly;
+                input_clip.contentEditable = true;
+                input_clip.readOnly = false;
+                var range = document.createRange();
+                range.selectNodeContents(input_clip);
+                var selection = window.getSelection();
+                selection.removeAllRanges();
+                selection.addRange(range);
+                input_clip.setSelectionRange(0, 999999);
+                input_clip.contentEditable = editable;
+                input_clip.readOnly = readOnly;
+            } else {
+                input_clip.select();
+            }
+            try {
+                var successful = document.execCommand('copy');
+                input_clip.blur();
+                if (successful) {
+                    alert("URL이 복사 되었습니다. 원하시는 곳에 붙여넣기 해 주세요.");
+                    $('html').find('meta[name=viewport]').attr('content', 'width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=yes');
+                } else {
+                    alert('이 브라우저는 지원하지 않습니다.');
+                }
+            } catch (err) {
+                alert('이 브라우저는 지원하지 않습니다.');
+            }
+        });
+    </script>
+
+
+</body></html>
