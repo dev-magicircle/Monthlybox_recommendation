@@ -7,8 +7,6 @@
     <title>선택지</title>
     <link rel="stylesheet" href="css/question.css">
     <link rel="stylesheet" href="css/logo.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
     <style>
         .box {
             position: relative;
@@ -75,6 +73,7 @@
                 width: 350px;
             }
         }
+
     </style>
 
 </head>
@@ -100,8 +99,7 @@
         </div>
         <div id="reset"><a href="index.html" id="reset_detail">&#10227; 처음부터 다시하기</a></div>
     </div>
-
-    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
         function pay1() {
             sessionStorage.setItem("pay_attribute", "가성비");
@@ -204,20 +202,6 @@
             }
             sessionStorage.setItem('result_2', result_2);
         }
-        // Your web app's Firebase configuration
-        var config = {
-            apiKey: "AIzaSyDNbiWdoL6gmS_0jhcdyQGucdX9WrDWe1E",
-            authDomain: "villagebaby-monthlybox.firebaseapp.com",
-            databaseURL: "https://villagebaby-monthlybox.firebaseio.com",
-            projectId: "villagebaby-monthlybox",
-            storageBucket: "villagebaby-monthlybox.appspot.com",
-            messagingSenderId: "944592299921",
-            appId: "1:944592299921:web:9ba67bf3e633a06c729c30",
-            measurementId: "G-ZYJPR9PVJP"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(config);
-        var database = firebase.database();
 
         function writeData() {
             console.log("writedata함수시작");
@@ -228,18 +212,25 @@
             let pay_attribute = sessionStorage.getItem("pay_attribute");
             let result_1 = sessionStorage.getItem("result_1");
             let result_2 = sessionStorage.getItem("result_2");
-
-
-            firebase.database().ref("응답").push({
-                상황: state,
-                임신개월: result_1_month,
-                고민1: worry_1,
-                고민2: worry_2,
-                소비성향: pay_attribute,
-                추천박스1: result_1,
-                추천박스2: result_2
+            if(result_1_month==0)result_1_month="모름"
+            
+            $.ajax({
+                type: "GET",
+                url: "https://script.google.com/macros/s/AKfycbwwLcml1S-l1PKYaKP_j7n_nKNoOp6YlQnWXplMAIby_fLipqo/exec",
+                data: {
+                    "상황": state,
+                    "임신개월": result_1_month,
+                    "고민1": worry_1,
+                    "고민2":worry_2,
+                    "소비성향":pay_attribute,
+                    "추천박스1":result_1,
+                    "추천박스2":result_2,
+                }
             });
         }
+
     </script>
 
-</body></html>
+</body>
+
+</html>

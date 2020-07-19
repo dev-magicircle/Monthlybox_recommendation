@@ -65,11 +65,12 @@ a {
     text-align: left;
     margin-bottom: 2rem;
 }
-
+#reset a{
+    font-size:1.4rem;
+}
 #reset_detail {
     text-decoration: none;
     color: #898989;
-    font-size: 1.2rem;
 }
 
 @media(min-width:700px) {
@@ -81,6 +82,9 @@ a {
     .header {
         grid-template-columns: 10px 10px 10px;
     }
+    #reset a{
+    font-size:1.2rem;
+}
 
 }
 

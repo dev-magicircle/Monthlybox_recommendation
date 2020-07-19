@@ -1,0 +1,34 @@
+<html>
+    <head>
+    <style>
+    </style>
+</head>
+
+<body>
+    
+    <div>
+        <button class="google-submit" onclick="pay1();">입력</button>
+    </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   
+
+    <script>
+       function pay1(){
+            $.ajax({
+                type: "GET",
+                url: "https://script.google.com/macros/s/AKfycbwwLcml1S-l1PKYaKP_j7n_nKNoOp6YlQnWXplMAIby_fLipqo/exec",
+                data: {
+                    "상황": name,
+                    "임신개월": 1,
+                    "고민1": "ss",
+                    "고민2":"ㅇ",
+                    "소비성향":"ㅇ",
+                    "추천박스1":"ㅇ",
+                    "추천박스2":"ㅇ",
+                }
+            });
+        }
+    </script>
+</body></html>
+
